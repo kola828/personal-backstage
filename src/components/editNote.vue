@@ -21,7 +21,8 @@
   import headerNav from '../components/nav/header-nav.vue';
   import {mavonEditor} from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
-  import {addArt} from "../store/getdata"
+//  import {addArt} from "../store/getdata"
+  import {mapState, mapActions,mapMutations} from 'vuex'
 
   export default {
     data() {
@@ -32,16 +33,16 @@
     },
     mounted() {
 
-      addArt()
+      this.test()
     },
 
     methods: {
+      ...mapActions([
+        'test',
+      ]),
       save(){
 
       },
-      test() {
-        console.log(111)
-      }
 
     },
     components: {

@@ -4,24 +4,23 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueRouter from 'vue-router'
-Vue.use(VueRouter);
-// const VueResource = require('vue-resource');
-// Vue.use(VueResource);
-
+import store from './store/'
 //引用ElementUI
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+
+Vue.use(VueRouter);
 Vue.use(ElementUI);
 
 
 Vue.config.productionTip = false;
 
 
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
