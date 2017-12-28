@@ -27,10 +27,8 @@ npm run e2e
 npm test
 ```
 
-0
-  Star 0
-  Fork 0 kola828/personal-backstage
+personal-backstage/src/image/bg.jpg
 
-![image](http://github.com/kola828/personal-backstage/raw/master/src/image/head.jpg)
+![image](https://github.com/kola828/personal-backstage/blob/master/src/image/bg.jpg)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
