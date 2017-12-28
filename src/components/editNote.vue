@@ -21,30 +21,98 @@
   import headerNav from '../components/nav/header-nav.vue';
   import {mavonEditor} from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
-//  import {addArt} from "../store/getdata"
-  import {mapState, mapActions,mapMutations} from 'vuex'
+  import {mapState, mapActions, mapMutations} from 'vuex'
 
   export default {
     data() {
       return {
-        title:'',
+        title: '',
         value: '',
+        id: this.$route.query.id
       }
+    },
+    computed: {
+      ...mapState([
+        'user',
+//        'artId',
+        'addOneArt'
+      ]),
+      addOneArt: {
+        get () {
+          return this.$store.state.addOneArt
+        },
+        set (value) {
+          this.$store.commit('ONE_ART', value)
+        }
+      }
+
     },
     mounted() {
 
-      this.test()
+      console.log(this.$route.query);
+      this.getArtInfo()
     },
 
     methods: {
       ...mapActions([
-        'test',
+        'addArt',
+        'getOneArt'
       ]),
-      save(){
+      ...mapMutations([
+        'ONE_ART',
+        'ART_ID'
+      ]),
 
+      async getArtInfo() {
+        let self = this;
+
+        if (self.id > 0) {
+          self.ART_ID({
+            artId: self.id
+          });
+          await self.getOneArt();
+          self.title = self.addOneArt.art_title;
+          self.value = self.addOneArt.art_contant;
+        } else {
+
+        }
       },
 
+
+      /**
+       * @description 保存文章
+       */
+      save() {
+        let self = this;
+
+        if (self.title === '') {
+          self.$message.error('标题不能为空');
+
+        } else {
+          let params = {
+            art_title: self.title,
+            art_contant: self.value,
+            author: sessionStorage.getItem("user")
+          };
+
+          if (self.id > 0) {
+            params.id = self.id;
+          }
+          self.ONE_ART({
+            data: params
+          });
+          self.addArt()
+              .then((response) => {
+                console.log(response);
+                self.$router.push({name: 'noteList'});
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+        }
+      },
     },
+
     components: {
       headerNav,
       mavonEditor

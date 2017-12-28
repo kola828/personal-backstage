@@ -6,36 +6,80 @@
 
 
 import {
-  addArt
+  login,
+  addOneArt,
+  artList,
+  oneArtInfo
 } from './getdata'
 
 import {
-  TEST,
+  TEST,ALL_ART,ONE_ART
 } from './mutations'
 
 
 export default {
-  async test({commit, state}) {
-    await addArt()
-        .then((response) => {
-          console.log('response',response);
-          commit(TEST, response.data)
-        })
 
-  },
+  // async login({commit, state}) {
+  //   let params=state.addOneArt;
+  //   await login(params)
+  //       .then((response) => {
+  //         console.log('response',response);
+  //         // commit(ONE_ART, response.data)
+  //       })
+  //       .catch((error) => {
+  //         console.log(error)
+  //       });
+  // },
 
   /**
-   * 获取个人信息
+   * @description 新增文章
    * @param commit
    * @param state
    * @returns {Promise.<void>}
    */
+  async addArt({commit, state}) {
+    let params=state.addOneArt;
+    await addOneArt(params)
+        .then((response) => {
+          console.log('response',response);
+          // commit(ONE_ART, response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+  },
+  /**
+   * @description 获取所有文章列表
+   * @param commit
+   * @param state
+   * @returns {Promise.<void>}
+   */
+  async getArtList({commit, state}) {
+    let params={
+      page:state.page
+    };
+    await artList(params)
+        .then((response) => {
+          commit(ALL_ART, response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+  },
 
-  // async getUser({commit, state}) {
-  //   await getUser(state.name)
-  //       .then((response) => {
-  //         commit(USER_INFO, response);//commit的时候执行ARTICLE_INFO
-  //       });
-  // },
+  async getOneArt({commit, state}) {
+
+    let params={
+      id:state.artId
+    };
+    await oneArtInfo(params)
+        .then((response) => {
+          commit(ONE_ART, response.data);
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+
+  }
 
 }

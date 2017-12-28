@@ -8,8 +8,16 @@ Vue.use(Vuex);
 
 
 const state = {
-  test:[]
+  test:[],
+  user:'',
+  artList:[],
+  artId:'',
+  addOneArt:{},
+  page:1
 };
+
+
+
 
 
 export default new Vuex.Store({

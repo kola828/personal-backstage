@@ -23,8 +23,9 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  import {setSession} from '../store/common'
+//  import axios from 'axios';
+  import {login} from '../store/getdata'
+  import {mapState, mapActions,mapMutations} from 'vuex'
   export default {
     data() {
       return {
@@ -38,6 +39,12 @@
 
     },
     methods: {
+//      ...mapActions([
+//        'login',
+//      ]),
+      ...mapMutations([
+        'USER'
+      ]),
       login() {
         var self = this;
         if (self.name == '') {
@@ -51,17 +58,13 @@
             username: self.name,
             password: self.pw
           }
-          axios({
-            method: 'POST',
-            url: '/api/user/login',
-            data: param
-          })
+          login(param)
               .then(function (response) {
                 if (response.data.code == 0) {
-                  let params={
-                    name:response.data.data.name
-                  }
-                  console.log(params)
+                  self.USER({
+                    user:response.data.data.name
+                  });
+                  sessionStorage.setItem('user', response.data.data.name);
                   self.$router.push({name: 'noteList'});
 
                 } else {

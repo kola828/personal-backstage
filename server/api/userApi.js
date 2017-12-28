@@ -115,9 +115,8 @@ router.post('/login', (req, res) => {
             msg: '用户名不存在',
           });
         } else if (pw === result[0].user_password) {
-
           // req.session.user=result[0].user_name;
-          res.cookie("user", {user: result[0].user_name,}, {maxAge: 60000});
+          res.cookie("user", {user: result[0].user_name,},{expires: new Date(Date.now() + 36000000)});
           res.json({
             code: '0',
             msg: '登录成功',
