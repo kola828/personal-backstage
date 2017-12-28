@@ -89,7 +89,7 @@ router.post('/artList', (req, res) => {
     }
   });
 
-  conn.query(sql, [params.art_author, (page - 1) * 5, page * 5], function (err, result) {
+  conn.query(sql, [params.art_author, (page - 1) * 15, page * 15], function (err, result) {
     if (err) {
       console.log(err);
     }

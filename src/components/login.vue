@@ -39,12 +39,12 @@
 
     },
     methods: {
-//      ...mapActions([
-//        'login',
-//      ]),
       ...mapMutations([
         'USER'
       ]),
+      /**
+       * @description 登录
+       */
       login() {
         var self = this;
         if (self.name == '') {

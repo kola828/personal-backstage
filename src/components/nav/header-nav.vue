@@ -11,7 +11,6 @@
 </template>
 
 <script>
-//  import {mapState, mapActions,mapMutations} from 'vuex'
   export default {
     data() {
       return {
@@ -19,18 +18,16 @@
       }
     },
     computed: {
-//      ...mapState([
-//        'user',
-//      ]),
-
     },
     mounted() {
 
 
     },
 
-
     methods: {
+      /**
+       * @description 点击跳转
+       */
       go(){
         this.$router.push({name: 'noteList'});
       }

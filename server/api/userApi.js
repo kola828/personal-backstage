@@ -72,29 +72,6 @@ router.post('/addUser', (req, res) => {
   })
 });
 
-/**
- * 测试接口(查询所有文章)
- */
-router.post('/test', (req, res) => {
-  let sql = $sql.user.artList;
-  let params = req.body;
-  console.log(req.cookies["user"],1111);
-  conn.query(sql, function (err, result) {
-    if (err) {
-      console.log(err);
-    }
-    if (result) {
-      backJson(res, result, function () {
-        res.json({
-          code: '0',
-          msg: '成功',
-          data: result,
-        });
-      })
-
-    }
-  })
-});
 
 /**
  * @description 登录接口

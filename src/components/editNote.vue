@@ -63,6 +63,9 @@
         'ART_ID'
       ]),
 
+      /**
+       * @description 获取文章详情
+       */
       async getArtInfo() {
         let self = this;
 

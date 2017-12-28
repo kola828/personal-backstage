@@ -86,19 +86,28 @@
       ...mapMutations([
         'PAGE',
       ]),
-
+      /**
+       * @description点击查看详情
+       * @param row
+       */
       handleClick(row) {
         let self = this;
         console.log(row);
         self.$router.push({name: 'editNote', query: {id: row.art_id}});
       },
+      /**
+       * @description 点击弹框
+       * @param row
+       */
       del(row) {
         let self = this;
         self.delDialog = true;
         console.log(row);
         self.row = row.art_id
-
       },
+      /**
+       * @description 确认删除
+       */
       delOk() {
         let self = this;
         let params = {
@@ -117,6 +126,10 @@
             })
 
       },
+      /**
+       * @description 翻页
+       * @param val
+       */
       handleCurrentChange(val) {
         this.PAGE({page:val});
         this.getArtList();
