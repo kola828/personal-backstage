@@ -11,7 +11,7 @@ npm run build
 ### 页面截图
 
 ![image](https://github.com/kola828/personal-backstage/blob/master/src/image/login.jpg)
-![image](https://github.com/kola828/personal-backstage/blob/master/src/image/login2.jpg)
+![image](https://github.com/kola828/personal-backstage/blob/master/src/image/login2.png)
 ![image](https://github.com/kola828/personal-backstage/blob/master/src/image/notelist.png)
 ![image](https://github.com/kola828/personal-backstage/blob/master/src/image/editnote.png)
 ![image](https://github.com/kola828/personal-backstage/blob/master/src/image/notepad.png)
