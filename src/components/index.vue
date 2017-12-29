@@ -3,7 +3,7 @@
     <header-nav></header-nav>
     <div class="wrap">
       <left-nav></left-nav>
-      <div class="main">
+      <div class="main1">
         <router-view/>
       </div>
     </div>

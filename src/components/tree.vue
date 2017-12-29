@@ -89,3 +89,9 @@
 
   }
 </script>
+
+<style lang="stylus">
+
+  @import '../style/tree';
+
+</style>
