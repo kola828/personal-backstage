@@ -68,7 +68,6 @@
        */
       async getArtInfo() {
         let self = this;
-
         if (self.id > 0) {
           self.ART_ID({
             artId: self.id
@@ -80,7 +79,6 @@
 
         }
       },
-
 
       /**
        * @description 保存文章

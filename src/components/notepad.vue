@@ -44,12 +44,7 @@
         }]
       }
     },
-    mounted() {
-
-
-    },
-
-
+    mounted() {},
     methods: {
       /**
        * @description 删除确认弹框

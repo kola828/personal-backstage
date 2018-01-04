@@ -54,8 +54,6 @@
 
 
     },
-
-
     methods: {
       append(data) {
         const newChild = { id: id++, label: '新增员工', children: [] };

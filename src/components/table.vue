@@ -30,11 +30,6 @@
               show-overflow-tooltip
       >
       </el-table-column>
-      <!--<el-table-column-->
-              <!--prop="address"-->
-              <!--label="地址"-->
-              <!--show-overflow-tooltip>-->
-      <!--</el-table-column>-->
     </el-table>
   </div>
 

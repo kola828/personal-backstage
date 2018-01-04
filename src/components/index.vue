@@ -19,11 +19,7 @@
 
       }
     },
-    mounted(){
-
-
-
-    },
+    mounted(){},
 
 
     methods: {},
